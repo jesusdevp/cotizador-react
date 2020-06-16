@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { obtenerDiferenciaYear, calculaMarca, obtenerPlan } from "../helper";
 
-const Formulario = () => {
+const Formulario = ({ guardarResumen }) => {
   //State
   const [datos, guardarDatos] = useState({
     marca: "",
@@ -49,6 +49,11 @@ const Formulario = () => {
     const incrementoPlan = obtenerPlan(plan);
     resultado = parseFloat(incrementoPlan * resultado).toFixed(2);
     console.log(resultado);
+
+    guardarResumen({
+      cotizacion: resultado,
+      datos,
+    });
   };
 
   return (

@@ -1,15 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./components/Header";
 import Formulario from "./components/Formulario";
+import Resumen from "./components/Resumen";
 
 import styled from "@emotion/styled";
 
 function App() {
+  const [resumen, guardarResumen] = useState({
+    cotizacion: 0,
+    datos: {
+      marca: "",
+      year: "",
+      plan: "",
+    },
+  });
+
+  //extraer datos
+  const { datos } = resumen;
+
   return (
     <Container>
       <Header titulo="Cotizador de seguros" />;
       <ContenedorFormulario>
-        <Formulario />
+        <Formulario guardarResumen={guardarResumen} />
+        <Resumen datos={datos} />
       </ContenedorFormulario>
     </Container>
   );
