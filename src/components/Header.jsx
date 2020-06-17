@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 
 const Header = ({ titulo }) => {
@@ -7,6 +8,11 @@ const Header = ({ titulo }) => {
       <TextoHeader>{titulo}</TextoHeader>
     </HeaderContainer>
   );
+};
+
+//PropTypes
+Header.propTypes = {
+  titulo: PropTypes.string.isRequired,
 };
 
 //Styled Components
